@@ -1,0 +1,26 @@
+package bean;
+
+import java.util.List;
+
+import javax.annotation.ManagedBean;
+import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
+
+
+import service.ProdutoFacadeLocal;
+
+@ManagedBean(value="bean")
+@RequestScoped
+public class ProdutoManagedBean {
+	
+	@EJB
+	private ProdutoFacadeLocal produtoFacade;
+	
+	public ProdutoManagedBean() {
+		
+	}
+	
+	public List<Produto> getProdutos(){
+		return produtoFacade.
+	}
+}

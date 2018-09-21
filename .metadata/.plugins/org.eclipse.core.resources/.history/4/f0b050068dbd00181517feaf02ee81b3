@@ -1,0 +1,119 @@
+package entity;
+
+import java.io.Serializable;
+import javax.persistence.*;
+import java.math.BigDecimal;
+import java.util.List;
+
+
+/**
+ * The persistent class for the PRODUTO database table.
+ * 
+ */
+@Entity
+@NamedQuery(name="Produto.findAll", query="SELECT p FROM Produto p")
+public class Produto implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="codigo")
+	private long codigo;
+
+	@Column(name="descricao")
+	private String descricao;
+
+	@Column(name="preco_unitario")
+	private BigDecimal preco_unitario;
+
+	@Column(name="stock")
+	private BigDecimal stock;
+
+	//bi-directional many-to-one association to Linhafactura
+	@OneToMany(mappedBy="produto")
+	private List<Linhafactura> linhafacturas;
+
+	//bi-directional many-to-one association to Empregado
+	@ManyToOne
+	@JoinColumn(name="GESTOR_ID")
+	private Empregado empregado;
+
+	//bi-directional many-to-one association to Subcategoria
+	@ManyToOne
+	@JoinColumn(name="SUBCATEGORIA_ID")
+	private Subcategoria subcategoria;
+
+	public Produto() {
+	}
+
+	public long getProdutoId() {
+		return this.produtoId;
+	}
+
+	public void setProdutoId(long produtoId) {
+		this.produtoId = produtoId;
+	}
+
+	public String getDescricao() {
+		return this.descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public BigDecimal getPrecoUnitario() {
+		return this.preco_unitario;
+	}
+
+	public void setPrecoUnitario(BigDecimal precoUnitario) {
+		this.preco_unitario = precoUnitario;
+	}
+
+	public BigDecimal getStock() {
+		return this.stock;
+	}
+
+	public void setStock(BigDecimal stock) {
+		this.stock = stock;
+	}
+
+	public List<Linhafactura> getLinhafacturas() {
+		return this.linhafacturas;
+	}
+
+	public void setLinhafacturas(List<Linhafactura> linhafacturas) {
+		this.linhafacturas = linhafacturas;
+	}
+
+	public Linhafactura addLinhafactura(Linhafactura linhafactura) {
+		getLinhafacturas().add(linhafactura);
+		linhafactura.setProduto(this);
+
+		return linhafactura;
+	}
+
+	public Linhafactura removeLinhafactura(Linhafactura linhafactura) {
+		getLinhafacturas().remove(linhafactura);
+		linhafactura.setProduto(null);
+
+		return linhafactura;
+	}
+
+	public Empregado getEmpregado() {
+		return this.empregado;
+	}
+
+	public void setEmpregado(Empregado empregado) {
+		this.empregado = empregado;
+	}
+
+	public Subcategoria getSubcategoria() {
+		return this.subcategoria;
+	}
+
+	public void setSubcategoria(Subcategoria subcategoria) {
+		this.subcategoria = subcategoria;
+	}
+
+}

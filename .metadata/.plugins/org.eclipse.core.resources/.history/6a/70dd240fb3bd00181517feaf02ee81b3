@@ -1,0 +1,20 @@
+package service;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+
+/**
+ * Session Bean implementation class ProdutoFacade
+ */
+@Stateless
+@LocalBean
+public class ProdutoFacade implements ProdutoFacadeLocal {
+
+    /**
+     * Default constructor. 
+     */
+    public ProdutoFacade() {
+        // TODO Auto-generated constructor stub
+    }
+
+}

@@ -1,0 +1,4 @@
+#GlassFish 3
+#Fri Sep 21 19:42:26 CEST 2018
+org.eclipse.jst.jee.server\:GProdutosEAR=C\:\\glassfish5\\glassfish\\domains\\domain1\\eclipseApps\\GProdutosEAR
+org.eclipse.jst.jee.server\:GestaoProdutosEAR=C\:\\glassfish5\\glassfish\\domains\\domain1\\eclipseApps\\GestaoProdutosEAR

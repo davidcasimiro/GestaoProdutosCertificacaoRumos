@@ -1,0 +1,11 @@
+package bean;
+
+import javax.annotation.ManagedBean;
+import javax.enterprise.context.RequestScoped;
+
+@ManagedBean(value="bean")
+@RequestScoped
+public class ProdutoManagedBean {
+	
+	ProdutoFacadeLocal
+}

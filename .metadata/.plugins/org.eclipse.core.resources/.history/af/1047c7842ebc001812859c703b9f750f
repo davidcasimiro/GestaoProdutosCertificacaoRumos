@@ -1,0 +1,92 @@
+package repository;
+
+import java.util.Properties;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+public class DButils {
+	private static DataSource dataSource;
+	private static final String JNDI_LOOKUP_SERVICE = "gprodutos/jdbcDS";
+	private static final String PROVIDER_URL = "t3://localhost:7001";
+	private static final String INITIAL_CONTEXT_FACTORY = "weblogic.jndi.WLInitialContextFactory";
+	private static final String SECURITY_PRINCIPAL = "weblogic";
+	private static final String SECURITY_CREDENTIALS = "Weblogic1";
+
+	
+	
+	static {
+		
+//		weblogic.jndi.Environment env=new weblogic.jndi.Environment();
+//		weblogic.jndi.Environment environment = new weblogic.jndi.Environment();
+//        environment.setInitialContextFactory(
+//        		weblogic.jndi.Environment.DEFAULT_INITIAL_CONTEXT_FACTORY);		
+		    
+		Properties p = new Properties();
+		p.put(Context.PROVIDER_URL, PROVIDER_URL);
+		p.put(Context.INITIAL_CONTEXT_FACTORY, INITIAL_CONTEXT_FACTORY);
+		p.put(Context.SECURITY_PRINCIPAL, SECURITY_PRINCIPAL);
+		p.put(Context.SECURITY_CREDENTIALS, SECURITY_CREDENTIALS);
+		//p.put(weblogic.jndi.WLContext.ENABLE_SERVER_AFFINITY, "true");
+		
+		try {
+//			OracleDataSource ods = new OracleDataSource();
+//			Properties prop = new java.util.Properties();    
+//			prop.setProperty("MinLimit", "2"); 
+//			prop.setProperty("MaxLimit", "10");    
+//			String url = "jdbc:oracle:thin:@//localhost:1521/oracle.local";    
+//			ods.setURL(url); 
+//			ods.setUser("system");    
+//			ods.setPassword("system");    
+			
+			
+//			Context context = new InitialContext();
+//			environment = context.getEnvironment();
+			Context envContext = new InitialContext(p);
+            dataSource = (DataSource)envContext.lookup(JNDI_LOOKUP_SERVICE);
+            String s="";
+			
+			
+		} catch (NamingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} 
+
+		
+		
+//		try {
+///*			Hashtable env = new Hashtable(5);
+//			env.put(Context.INITIAL_CONTEXT_FACTORY,
+//					"weblogic.jndi.WLInitialContextFactory");
+//			env.put(Context.PROVIDER_URL,
+//					"t3://weblogicServer:7001");
+//*/			
+///*			Context ctx = new InitialContext();
+//			Object lookup = ctx.lookup(JNDI_LOOKUP_SERVICE);
+//			if(lookup != null) {
+//				dataSource = (DataSource) lookup;
+//			}else {
+//				new RuntimeException("DataSource not found!!!");
+//			} */
+//			Context initContext = new InitialContext();
+//			//initContext = (Context) initContext.lookup("java:comp/env");
+//			Object lookup = initContext.lookup("gprodutos_db");
+//			if(lookup != null) {
+//				dataSource = (DataSource) lookup;
+//			}else {
+//				new RuntimeException("DataSource not found!!!");
+//			}
+//			
+//		}catch(NamingException e) {
+//			e.printStackTrace();
+//		}
+	}
+	
+	public static DataSource getDataSource() {
+		return dataSource;
+	}
+	
+
+}

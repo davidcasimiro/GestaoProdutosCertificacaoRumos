@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context path="/GProdutos" docBase="${WORKSPACE}/GProdutos/src/repository">
+	<Resource name="datasource"
+	type="javax.sql.DataSource"
+	auth="Container"
+	maxActive="10"
+	maxIdle="3"
+	maxWait="10000"
+	username="gprodutos"
+	password="gprodutos"
+	driverClassName="com.mysql.jdbc.Driver"
+	url="jdbc:mysql://localhost:3306/gprodutos_db?autoReconnect=true" />
+</Context>

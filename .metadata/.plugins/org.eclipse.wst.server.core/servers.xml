@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-setting="1" auto-publish-time="15" hostname="localhost" id="Oracle WebLogic Server 12c R2 (12.2.1.3) [base_domain]" name="Oracle WebLogic Server 12c R2 (12.2.1.3) [base_domain]" runtime-id="Oracle WebLogic Server 12c R2 (12.2.1.3)" server-type="weblogic.server" server-type-id="weblogic.server" start-timeout="480" stop-timeout="240" timestamp="38" weblogic_domain_path="C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain" weblogic_host_name="localhost" weblogic_is_remote="false" weblogic_port="7001" weblogic_use_bootprop="true" weblogic_use_config_xml="true">
+    <list key="modules" value0="GestaoProdutosEAR::org.eclipse.jst.jee.server:GestaoProdutosEAR::jst.ear::7.0"/>
+  </server>
+  <server auto-publish-setting="1" glassfish.adminserverportnumber="4848" glassfish.debugport="8080" glassfish.domainpath="C:\glassfish5\glassfish\domains\domain1" glassfish.serverportnumber="8080" hostname="localhost" id="GlassFish 5 [domain1]" name="GlassFish 5 [domain1]" runtime-id="GlassFish 5" server-type="glassfish.server" server-type-id="glassfish.server" start-timeout="240" stop-timeout="240" timestamp="30">
+    <list key="modules" value0="GProdutosEAR::org.eclipse.jst.jee.server:GProdutosEAR::jst.ear::8.0"/>
+  </server>
+</servers>

@@ -1,0 +1,77 @@
+package entity;
+
+import java.io.Serializable;
+import javax.persistence.*;
+import java.util.Date;
+
+
+/**
+ * The persistent class for the factura database table.
+ * 
+ */
+@Entity
+@NamedQuery(name="Factura.findAll", query="SELECT f FROM Factura f")
+public class Factura implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="numero")
+	private Integer numero;
+
+	@Temporal(TemporalType.DATE)
+	private Date data;
+
+	private float total;
+
+	@Column(name="vendedor_id")
+	private String vendedorId;
+
+	//bi-directional many-to-one association to Empregado
+	@ManyToOne
+	private Empregado empregado;
+
+	public Factura() {
+	}
+
+	public Integer getNumero() {
+		return this.numero;
+	}
+
+	public void setNumero(Integer numero) {
+		this.numero = numero;
+	}
+
+	public Date getData() {
+		return this.data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public float getTotal() {
+		return this.total;
+	}
+
+	public void setTotal(float total) {
+		this.total = total;
+	}
+
+	public String getVendedorId() {
+		return this.vendedorId;
+	}
+
+	public void setVendedorId(String vendedorId) {
+		this.vendedorId = vendedorId;
+	}
+
+	public Empregado getEmpregado() {
+		return this.empregado;
+	}
+
+	public void setEmpregado(Empregado empregado) {
+		this.empregado = empregado;
+	}
+
+}

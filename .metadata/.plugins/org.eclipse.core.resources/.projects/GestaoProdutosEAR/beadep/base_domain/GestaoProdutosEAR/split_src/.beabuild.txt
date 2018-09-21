@@ -1,0 +1,5 @@
+C\:/workspaces/workspace_CertificacaoRumos/GestaoProdutosEAR/EarContent/APP-INF/classes = APP-INF/classes
+C\:/workspaces/workspace_CertificacaoRumos/GestaoProdutos/target/m2e-wtp/web-resources = GestaoProdutos.war
+C\:/workspaces/workspace_CertificacaoRumos/.metadata/.plugins/org.eclipse.core.resources/GestaoProdutos/build/weboutput = GestaoProdutos.war
+C\:/workspaces/workspace_CertificacaoRumos/GestaoProdutos/WebContent = GestaoProdutos.war
+C\:/workspaces/workspace_CertificacaoRumos/GestaoProdutos/target/classes = GestaoProdutos.war/WEB-INF/classes

@@ -1,0 +1,29 @@
+package service;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+/**
+ * Session Bean implementation class ProdutoFacade
+ */
+@Stateless
+@LocalBean
+public class ProdutoFacade implements ProdutoFacadeLocal {
+	@PersistenceContext(unitName = "GProdutos_EBJ")
+	private EntityManager em;
+
+	@Override
+	protected EntityManager getEntityManager() {
+		return em;
+	}
+	
+    /**
+     * Default constructor. 
+     */	
+    public ProdutoFacade() {
+        // TODO Auto-generated constructor stub
+    }
+
+}

@@ -1,0 +1,52 @@
+package model;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+
+/**
+ * The persistent class for the subcategoria database table.
+ * 
+ */
+@Entity
+@NamedQuery(name="Subcategoria.findAll", query="SELECT s FROM Subcategoria s")
+public class Subcategoria implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@EmbeddedId
+	private SubcategoriaPK id;
+
+	private String descricao;
+
+	//bi-directional many-to-one association to Categoria
+	@ManyToOne
+	private Categoria categoria;
+
+	public Subcategoria() {
+	}
+
+	public SubcategoriaPK getId() {
+		return this.id;
+	}
+
+	public void setId(SubcategoriaPK id) {
+		this.id = id;
+	}
+
+	public String getDescricao() {
+		return this.descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Categoria getCategoria() {
+		return this.categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+}
